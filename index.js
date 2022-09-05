@@ -1,22 +1,10 @@
+import express from "express";
 
-
-const express = require('express');
-const cors = require('cors');
-const router = require('./test');
 const app = express();
-const PORT = process.env.PORT || 8081;
- 
-app.use(cors());
-app.use(express.json({strict:false}));
-app.use("/test",router);
-
-app.use("/", (req, res) => {
-    res.send('🏝  Hello world!')
+const PORT = 9000;
+app.use( "/" , (req,res) => {
+    res.send({ message: "Hello data!"})
 })
-app.listen(PORT,()=> {
-    console.log(`서버 정상적으로 켜졌음 :  ${PORT}`);
+app.listen(PORT, () => {
+    console.log(`서버 정상적으로 작동중 : ${PORT}` );
 });
-
-// app.get('/', (req, res) => {
-//     res.send('🏝  Hello world!');
-// });
