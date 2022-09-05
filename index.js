@@ -10,10 +10,13 @@ app.use(cors());
 app.use(express.json({strict:false}));
 app.use("/test",router);
 
+app.use("/", (req, res) => {
+    res.send('🏝  Hello world!')
+})
 app.listen(PORT,()=> {
     console.log(`서버 정상적으로 켜졌음 :  ${PORT}`);
 });
 
-app.get('/', (req, res) => {
-    res.send('🏝  Hello world!');
-});
+// app.get('/', (req, res) => {
+//     res.send('🏝  Hello world!');
+// });
